@@ -1,4 +1,4 @@
-package net.sf.log4jdbc;
+package net.sf.log4jdbc.pooled;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -7,6 +7,8 @@ import javax.sql.ConnectionEventListener;
 import javax.sql.PooledConnection;
 import javax.sql.StatementEventListener;
 
+import net.sf.log4jdbc.ConnectionSpy;
+
 public class PooledConnectionSpy implements PooledConnection
 {
 	/**
@@ -14,7 +16,7 @@ public class PooledConnectionSpy implements PooledConnection
 	 */
 	protected PooledConnection realPooledConnection;
 
-	public PooledConnectionSpy(PooledConnection realPooledConnection)
+	protected PooledConnectionSpy(PooledConnection realPooledConnection)
 	{
 		if (realPooledConnection == null)
 		{

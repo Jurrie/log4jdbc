@@ -1,17 +1,15 @@
-package org.postgresql.xa;
+package net.sf.log4jdbc.xa;
 
-import net.sf.log4jdbc.XADataSourceSpy;
-
-public class PGXADataSourceSpy extends XADataSourceSpy
+public class PostgreSQL extends XADataSourceSpy
 {
-	public PGXADataSourceSpy() throws ClassNotFoundException, InstantiationException, IllegalAccessException
+	public PostgreSQL() throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
 		super("org.postgresql.xa.PGXADataSource");
 	}
 
 	public String getDatabaseName()
 	{
-		return (String) invokeMethod("getDatabaseName");
+		return invokeMethod("getDatabaseName");
 	}
 
 	public void setDatabaseName(String databaseName)
@@ -21,7 +19,7 @@ public class PGXADataSourceSpy extends XADataSourceSpy
 
 	public int getPortNumber()
 	{
-		return (Integer) invokeMethod("getPortNumber");
+		return invokeMethod("getPortNumber");
 	}
 
 	public void setPortNumber(int portNumber)
@@ -31,7 +29,7 @@ public class PGXADataSourceSpy extends XADataSourceSpy
 
 	public String getServerName()
 	{
-		return (String) invokeMethod("getServerName");
+		return invokeMethod("getServerName");
 	}
 
 	public void setServerName(String serverName)

@@ -12,7 +12,7 @@ public abstract class CommonDataSourceSpy implements CommonDataSource
 {
 	private final CommonDataSource realCommonDataSource;
 
-	<T extends CommonDataSource> CommonDataSourceSpy(final String className, final Class<? extends T> interfaceClass) throws ClassNotFoundException, InstantiationException, IllegalAccessException
+	protected <T extends CommonDataSource> CommonDataSourceSpy(final String className, final Class<? extends T> interfaceClass) throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
 		@SuppressWarnings("unchecked")
 		Class<T> clazz = (Class<T>) Class.forName(className);
@@ -25,7 +25,7 @@ public abstract class CommonDataSourceSpy implements CommonDataSource
 	}
 
 	// TODO: Can object come from an abstract method declared in this class?
-	protected Object invokeMethod(final String methodName, Object... objects)
+	protected <T> T invokeMethod(final String methodName, Object... objects)
 	{
 		Class<?>[] args = new Class<?>[objects.length];
 		for (int i = 0; i < objects.length; i++)
@@ -36,7 +36,7 @@ public abstract class CommonDataSourceSpy implements CommonDataSource
 		return invokeMethod(methodName, objects, args);
 	}
 
-	protected Object invokeMethod(final String methodName, Object[] objects, Class<?>[] types)
+	protected <T> T invokeMethod(final String methodName, Object[] objects, Class<?>[] types)
 	{
 		Object spiedObject = getSpiedObject();
 
@@ -44,7 +44,11 @@ public abstract class CommonDataSourceSpy implements CommonDataSource
 		try
 		{
 			method = spiedObject.getClass().getMethod(methodName, types);
-			return method.invoke(spiedObject, objects);
+			final Object invokeMethodResult = method.invoke(spiedObject, objects);
+
+			@SuppressWarnings("unchecked")
+			T result = (T) invokeMethodResult;
+			return result;
 		}
 		catch (Exception e)
 		{
@@ -52,7 +56,7 @@ public abstract class CommonDataSourceSpy implements CommonDataSource
 		}
 	}
 
-	CommonDataSource getSpiedObject()
+	protected CommonDataSource getSpiedObject()
 	{
 		return realCommonDataSource;
 	}

@@ -1,4 +1,4 @@
-package net.sf.log4jdbc;
+package net.sf.log4jdbc.pooled;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 
 import javax.sql.ConnectionPoolDataSource;
 import javax.sql.PooledConnection;
+
+import net.sf.log4jdbc.CommonDataSourceSpy;
 
 public abstract class ConnectionPoolDataSourceSpy extends CommonDataSourceSpy implements ConnectionPoolDataSource
 {

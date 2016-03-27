@@ -1,9 +1,11 @@
-package net.sf.log4jdbc;
+package net.sf.log4jdbc.xa;
 
 import java.sql.SQLException;
 
 import javax.sql.XAConnection;
 import javax.transaction.xa.XAResource;
+
+import net.sf.log4jdbc.pooled.PooledConnectionSpy;
 
 public class XAConnectionSpy extends PooledConnectionSpy implements XAConnection
 {
