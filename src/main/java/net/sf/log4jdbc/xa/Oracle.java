@@ -1,6 +1,5 @@
 package net.sf.log4jdbc.xa;
 
-import java.io.PrintWriter;
 import java.util.Properties;
 
 public class Oracle extends XADataSourceSpy
@@ -128,30 +127,6 @@ public class Oracle extends XADataSourceSpy
 	public void setImplicitCachingEnabled(boolean implicitCachingEnabled)
 	{
 		invokeMethod("setImplicitCachingEnabled", new Object[] { implicitCachingEnabled }, new Class<?>[] { boolean.class });
-	}
-
-	@Override
-	public int getLoginTimeout()
-	{
-		return invokeMethod("getLoginTimeout");
-	}
-
-	@Override
-	public void setLoginTimeout(int loginTimeout)
-	{
-		invokeMethod("setLoginTimeout", new Object[] { loginTimeout }, new Class<?>[] { int.class });
-	}
-
-	@Override
-	public PrintWriter getLogWriter()
-	{
-		return invokeMethod("logWriter");
-	}
-
-	@Override
-	public void setLogWriter(PrintWriter logWriter)
-	{
-		invokeMethod("logWriter", logWriter);
 	}
 
 	public int getMaxStatements()

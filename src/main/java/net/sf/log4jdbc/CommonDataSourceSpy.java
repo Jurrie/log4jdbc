@@ -24,7 +24,6 @@ public abstract class CommonDataSourceSpy implements CommonDataSource
 		realCommonDataSource = clazz.newInstance();
 	}
 
-	// TODO: Can object come from an abstract method declared in this class?
 	protected <T> T invokeMethod(final String methodName, Object... objects)
 	{
 		Class<?>[] args = new Class<?>[objects.length];
