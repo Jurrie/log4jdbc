@@ -25,7 +25,7 @@ To Release:
 
 ## Usage
 
-This version of _log4jdbc_ is compiled for Java 8
+This version of _log4jdbc_ is compatible with Java 6
 
 __1. Chose the java logging system you will use.__
 
