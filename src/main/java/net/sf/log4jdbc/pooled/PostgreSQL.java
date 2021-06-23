@@ -202,6 +202,16 @@ public class PostgreSQL extends ConnectionPoolDataSourceSpy
 		invokeMethod("setSslfactory", sslfactory);
 	}
 
+	public String getSslMode()
+	{
+		return invokeMethod("getSslMode");
+	}
+
+	public void setSslMode(String sslMode)
+	{
+		invokeMethod("setSslMode", sslMode);
+	}
+
 	public String getStringType()
 	{
 		return invokeMethod("getStringType");

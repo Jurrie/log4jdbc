@@ -192,6 +192,16 @@ public class PostgreSQL extends XADataSourceSpy
 		invokeMethod("setSslfactory", sslfactory);
 	}
 
+	public String getSslMode()
+	{
+		return invokeMethod("getSslMode");
+	}
+
+	public void setSslMode(String sslMode)
+	{
+		invokeMethod("setSslMode", sslMode);
+	}
+
 	public String getStringType()
 	{
 		return invokeMethod("getStringType");
