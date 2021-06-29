@@ -5,3 +5,10 @@ target/
 .project
 .classpath
 .ruleset
+
+# IntelliJ Files
+.idea/
+*.iml
+modules.xml
+.idea/misc.xml
+*.ipr
